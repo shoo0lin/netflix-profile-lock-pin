@@ -1,0 +1,10 @@
+cookies*.txt
+cookie*.txt
+.env
+/lockpinread
+/unlockwithpin
+/controls
+*.exe
+*.test
+*.out
+.DS_Store

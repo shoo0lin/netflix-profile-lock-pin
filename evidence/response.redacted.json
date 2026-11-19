@@ -1,0 +1,58 @@
+{
+  "_redaction": "Field capture, 2026-10-23, trimmed. Profile names replaced with their role on the account, GUIDs truncated to 8 characters, avatars/icons and the device list removed. The four-digit lockPin is left in place because it is the finding; the lock has since been removed from the account. No other person's data appears here.",
+  "data": {
+    "currentProfile": {
+      "guid": "NIADRLI3",
+      "name": "kids",
+      "isKids": null,
+      "isAccountOwner": false,
+      "isProfileCreationLocked": false,
+      "lockPin": null
+    },
+    "growthAccount": {
+      "membershipStatus": "CURRENT_MEMBER",
+      "profiles": [
+        {
+          "guid": "VCWJWTGR",
+          "name": "owner",
+          "isKids": false,
+          "isAccountOwner": true,
+          "isProfileCreationLocked": false,
+          "lockPin": null
+        },
+        {
+          "guid": "OTSWWYH4",
+          "name": "protected",
+          "isKids": false,
+          "isAccountOwner": false,
+          "isProfileCreationLocked": false,
+          "lockPin": "0978"
+        },
+        {
+          "guid": "6DYO5LFG",
+          "name": "second adult",
+          "isKids": false,
+          "isAccountOwner": false,
+          "isProfileCreationLocked": false,
+          "lockPin": null
+        },
+        {
+          "guid": "WSDEM6QW",
+          "name": "spare",
+          "isKids": false,
+          "isAccountOwner": false,
+          "isProfileCreationLocked": false,
+          "lockPin": null
+        },
+        {
+          "guid": "NIADRLI3",
+          "name": "kids",
+          "isKids": true,
+          "isAccountOwner": false,
+          "isProfileCreationLocked": false,
+          "lockPin": null
+        }
+      ]
+    }
+  }
+}
